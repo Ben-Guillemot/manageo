@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstname": "Jean",
+      "lastname" : "Dupont",
+      "email": "jean@mail.com"
+    },
+    {
+      "id": "2",
+      "firstname": "Michel",
+      "lastname" : "Meunier",
+      "email": "michel@mail.com"
+    },
+    {
+      "id": "3",
+      "firstname": "Paul",
+      "lastname" : "Belmondo",
+      "email": "paul@mail.com"
+    },
+    {
+      "id": "4",
+      "firstname": "Foo",
+      "lastname" : "Bar",
+      "email": "foo@mail.com"
+    },
+    {
+      "id": "5",
+      "firstname": "Jean",
+      "lastname" : "Dupont",
+      "email": "jean@mail.com"
+    },
+    {
+      "id": "6",
+      "firstname": "Marie",
+      "lastname" : "Chamois",
+      "email": "marie@mail.com"
+    },
+    {
+      "id": "7",
+      "firstname": "Céline",
+      "lastname" : "Toto",
+      "email": "celine@mail.com"
+    }
+  ]
+}
