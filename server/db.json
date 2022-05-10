@@ -19,12 +19,6 @@
       "email": "strinsssg@test.net"
     },
     {
-      "id": "4",
-      "firstname": "Foo",
-      "lastname": "Bar",
-      "email": "foo@mail.com"
-    },
-    {
       "id": "6",
       "firstname": "Marie",
       "lastname": "Chamois",

@@ -10,9 +10,15 @@ function UsersList({
   email,
   id,
   handleEditButtonClick,
+  handleDeleteButtonClick,
 }) {
-  const takeInfosOnClick = () => {
+  const takeInfosToEdit = () => {
     handleEditButtonClick({
+      id, firstname, lastname, email,
+    });
+  };
+  const takeInfosToDelete = () => {
+    handleDeleteButtonClick({
       id, firstname, lastname, email,
     });
   };
@@ -25,10 +31,10 @@ function UsersList({
           {' '}
           {firstname}
         </p>
-        <button type="button" onClick={takeInfosOnClick}>
+        <button type="button" onClick={takeInfosToEdit}>
           <img src={editIcon} alt="bouton édition" />
         </button>
-        <button type="button">
+        <button type="button" onClick={takeInfosToDelete}>
           <img src={deleteIcon} alt="bouton supprimer" />
         </button>
       </div>
@@ -42,6 +48,7 @@ UsersList.propTypes = {
   email: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   handleEditButtonClick: PropTypes.func.isRequired,
+  handleDeleteButtonClick: PropTypes.func.isRequired,
 };
 UsersList.defaultProps = {
 };

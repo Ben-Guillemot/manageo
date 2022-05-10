@@ -16,6 +16,11 @@ function UsersListContainer({
     dispatch(actionGetUserInformations(datas));
     dispatch(actionToggleModal('editModal', true));
   };
+
+  const handleDeleteButtonClick = (datas) => {
+    dispatch(actionGetUserInformations(datas));
+    dispatch(actionToggleModal('deleteModal', true));
+  };
   return (
     <UsersList
       firstname={firstname}
@@ -23,6 +28,7 @@ function UsersListContainer({
       email={email}
       id={id}
       handleEditButtonClick={handleEditButtonClick}
+      handleDeleteButtonClick={handleDeleteButtonClick}
     />
   );
 }

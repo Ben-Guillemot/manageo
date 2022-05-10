@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UsersListContainer from '../../container/UsersListContainer';
 import EditModalContainer from '../../container/EditModalContainer';
+import DeleteModalContainer from '../../container/DeleteModalContainer';
 import './App.scss';
 
 function App({
@@ -23,6 +24,7 @@ function App({
           />
         ))}
         <EditModalContainer />
+        <DeleteModalContainer />
       </main>
     </div>
   );
