@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import './message.scss';
 
 function Message({
+  // props from MessageContainer
   classname,
   message,
   stopShowMessage,
   content,
 }) {
+  // useEffect used to execute stopShowMessage
   useEffect(() => {
     stopShowMessage(message);
   }, []);

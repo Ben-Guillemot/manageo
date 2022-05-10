@@ -6,9 +6,15 @@ import Message from '../component/Message/Message';
 function MessageContainer() {
   const dispatch = useDispatch();
 
+  /**
+   * funtion to stop showing message
+   * @param {string} message wich message stop showing
+   */
   const stopShowMessage = (message) => {
+    // redux action called to change modal's state with a setTimout to 3 seconds
     setTimeout(() => dispatch(actionToggleMessage(message, false)), 3000);
   };
+
   const {
     createSuccess,
     updateSuccess,
@@ -16,6 +22,7 @@ function MessageContainer() {
     errorMessage,
   } = useSelector((state) => state.message);
 
+  // depending on the condition displays a different message
   if (createSuccess) {
     return (
       <Message
@@ -58,6 +65,4 @@ function MessageContainer() {
   }
 }
 
-MessageContainer.propTypes = {};
-MessageContainer.defaultProps = {};
 export default React.memo(MessageContainer);

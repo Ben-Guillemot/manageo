@@ -5,6 +5,7 @@ import deleteIcon from '../../Assets/delete.png';
 import editIcon from '../../Assets/editer.png';
 
 function UsersList({
+  // props from UsersListContainer
   firstname,
   lastname,
   email,
@@ -12,17 +13,22 @@ function UsersList({
   handleEditButtonClick,
   handleDeleteButtonClick,
 }) {
+  // useState used to show or not  user email address
   const [showEmail, setShowEmail] = useState(false);
 
+  // function to update the local state "showEmail"
   const emailButtonClick = () => {
     setShowEmail(!showEmail);
   };
 
+  // function to get user informations and open editModal
   const takeInfosToEdit = () => {
     handleEditButtonClick({
       id, firstname, lastname, email,
     });
   };
+
+  // function to get user informations and open deleteModal
   const takeInfosToDelete = () => {
     handleDeleteButtonClick({
       id, firstname, lastname, email,

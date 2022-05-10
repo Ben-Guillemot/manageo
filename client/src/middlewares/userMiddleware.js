@@ -3,6 +3,11 @@ import {
 } from '../requests/usersRequests';
 import * as actions from '../actions';
 
+/**
+ * middleware used to execute actions out of application like http requests
+ * @param {*} store redux store
+ * @returns
+ */
 const userMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
     case actions.REQUEST_ALL_USERS: {
@@ -18,8 +23,11 @@ const userMiddleware = (store) => (next) => async (action) => {
 
     case actions.CREATE_USER: {
       const { user } = store.getState();
+
       const { firstname, lastname, email } = user;
+
       const userDatas = { firstname, lastname, email };
+
       const response = await createUser(userDatas);
       if (response.status === 201) {
         store.dispatch(actions.actionResetUserInformations());
@@ -34,8 +42,11 @@ const userMiddleware = (store) => (next) => async (action) => {
 
     case actions.UPDATE_USER: {
       const { user } = store.getState();
+
       const { firstname, lastname, email } = user;
+
       const userDatas = { firstname, lastname, email };
+
       const response = await updateUser(user.id, userDatas);
       if (response.status === 200) {
         store.dispatch(actions.actionResetUserInformations());
@@ -50,6 +61,7 @@ const userMiddleware = (store) => (next) => async (action) => {
 
     case actions.DELETE_USER: {
       const { user } = store.getState();
+
       const response = await deleteUser(user.id);
       if (response.status === 200) {
         store.dispatch(actions.actionResetUserInformations());

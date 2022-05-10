@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './input.scss';
 
 function Input({
+  // props from EditModal component
   type,
   labelValue,
   nameValue,

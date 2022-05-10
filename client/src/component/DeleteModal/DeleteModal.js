@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './deleteModal.scss';
 
 function DeleteModal({
+  // props from ModalContainer
   closeModal,
   handleSubmit,
 }) {

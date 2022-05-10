@@ -1,14 +1,8 @@
 {
   "users": [
     {
-      "firstname": "Pierre",
-      "lastname": "Feuille",
-      "email": "pierre@mail.com",
-      "id": "8mJHBWk"
-    },
-    {
       "firstname": "Eric",
-      "lastname": "ERIC",
+      "lastname": "Boisseau",
       "email": "eric@mail.com",
       "id": "YUCoXbn"
     },
@@ -17,6 +11,18 @@
       "lastname": "MARC",
       "email": "thomas@mail.com",
       "id": "XUrTMW2"
+    },
+    {
+      "firstname": "Marie",
+      "lastname": "Laurent",
+      "email": "marie@test.net",
+      "id": "dENEzyR"
+    },
+    {
+      "firstname": "John",
+      "lastname": "Lennon",
+      "email": "john@mail.com",
+      "id": "PjYKxxu"
     }
   ]
 }

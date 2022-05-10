@@ -8,6 +8,12 @@ const initialState = {
   errorMessage: false,
 };
 
+/**
+ * function used to call action as appropriate
+ * @param {object} state redux state
+ * @param {object} action redux actions
+ * @returns a new state
+ */
 function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.TOGGLE_MESSAGE:

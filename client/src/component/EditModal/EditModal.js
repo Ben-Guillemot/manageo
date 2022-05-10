@@ -4,6 +4,7 @@ import Input from '../Input/Input';
 import './editmodal.scss';
 
 function EditModal({
+  // props from ModalContainer
   firstname,
   lastname,
   email,
@@ -11,15 +12,18 @@ function EditModal({
   changeField,
   closeModal,
 }) {
-  const [isButtonDisable, setIsButtonDisable] = useState(true);
+  // useState used to show or not the submit button
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
+  // useEffect listening to props to update or not the local state "isButtonDisable"
   useEffect(() => {
+    // if one of these inputs is empty the submit button is disabled
     if (firstname.trim() === '' || lastname.trim() === '' || email.trim() === '') {
-      if (isButtonDisable === false) {
-        setIsButtonDisable(true);
+      if (isButtonDisabled === false) {
+        setIsButtonDisabled(true);
       }
     } else {
-      setIsButtonDisable(false);
+      setIsButtonDisabled(false);
     }
   }, [firstname, lastname, email]);
 
@@ -54,7 +58,7 @@ function EditModal({
         />
         <div className="modal__form-button-container">
           <button type="button" className="modal__form-button cancel" aria-label="Annuler la modification" onClick={closeModal}>Annuler</button>
-          <input disabled={isButtonDisable} type="submit" className="modal__form-button validate" aria-label="Valider la modification" value="Valider" />
+          <input disabled={isButtonDisabled} type="submit" className="modal__form-button validate" aria-label="Valider la modification" value="Valider" />
         </div>
       </form>
     </div>
