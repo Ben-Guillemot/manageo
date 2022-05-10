@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 import UsersListContainer from '../../container/UsersListContainer';
 import EditModalContainer from '../../container/EditModalContainer';
 import DeleteModalContainer from '../../container/DeleteModalContainer';
+import CreateModalContainer from '../../container/CreateModalContainer';
 import './App.scss';
 
 function App({
   usersList,
+  handleCreateButtonClick,
 }) {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Voici la liste des utilisateurs</h1>
+      <header className="App__header">
+        <h1>Liste des membres</h1>
       </header>
-      <main className="App-main">
+      <main className="App__main">
         {usersList.map((user) => (
           <UsersListContainer
             firstname={user.firstname}
@@ -25,6 +27,8 @@ function App({
         ))}
         <EditModalContainer />
         <DeleteModalContainer />
+        <CreateModalContainer />
+        <button type="button" className="App__main-button" onClick={handleCreateButtonClick}>Ajouter un membre</button>
       </main>
     </div>
   );
@@ -39,6 +43,7 @@ App.propTypes = {
       email: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
+  handleCreateButtonClick: PropTypes.func.isRequired,
 };
 
 export default App;

@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { actionRequestAllUsers } from '../actions';
+import { actionRequestAllUsers, actionToggleModal } from '../actions';
 import App from '../component/App/App';
 
 function AppContainer() {
   const dispatch = useDispatch();
 
   const { usersList } = useSelector((state) => state.user);
+
+  const handleCreateButtonClick = () => {
+    dispatch(actionToggleModal('createModal', true));
+  };
 
   const sortArray = (x, y) => {
     if (x.lastname < y.lastname) { return -1; }
@@ -20,7 +24,7 @@ function AppContainer() {
     dispatch(actionRequestAllUsers());
   }, []);
   return (
-    <App usersList={usersListSorted} />
+    <App usersList={usersListSorted} handleCreateButtonClick={handleCreateButtonClick} />
   );
 }
 

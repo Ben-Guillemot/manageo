@@ -24,10 +24,11 @@ const userMiddleware = (store) => (next) => async (action) => {
       if (response.status === 201) {
         store.dispatch(actions.actionResetUserInformations());
         store.dispatch(actions.actionRequestAllUsers());
-      } else {
-        alert(`Error: ${response.status}`);
-        return;
       }
+      //  else {
+      //   alert(`Error: ${response.status}`);
+      //   return;
+      // }
       return;
     }
 

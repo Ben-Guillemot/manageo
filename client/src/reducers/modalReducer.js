@@ -4,6 +4,7 @@ import * as actions from '../actions';
 const initialState = {
   editModal: false,
   deleteModal: false,
+  createModal: false,
 };
 
 function reducer(state = initialState, action) {
