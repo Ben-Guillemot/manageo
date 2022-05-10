@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import UsersList from '../UsersList/UsersList';
+import UsersListContainer from '../../container/UsersListContainer';
 import './App.scss';
 
 function App({
@@ -13,7 +13,13 @@ function App({
       </header>
       <main className="App-main">
         {usersList.map((user) => (
-          <UsersList firstname={user.firstname} lastname={user.lastname} key={user.id} />
+          <UsersListContainer
+            firstname={user.firstname}
+            lastname={user.lastname}
+            email={user.email}
+            id={user.id}
+            key={user.id}
+          />
         ))}
       </main>
     </div>
@@ -21,7 +27,14 @@ function App({
 }
 
 App.propTypes = {
-  usersList: PropTypes.arrayOf().isRequired,
+  usersList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      firstname: PropTypes.string.isRequired,
+      lastname: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default App;
