@@ -3,7 +3,7 @@ import * as actions from '../actions';
 
 const initialState = {
   usersList: [],
-  id: 0,
+  id: '',
   firstname: '',
   lastname: '',
   email: '',
