@@ -14,9 +14,10 @@ function Input({
   idValue,
 }) {
   return (
-    <>
-      <label htmlFor={idValue}>{labelValue}</label>
+    <div className="input__container">
+      <label className="input__container-label" htmlFor={idValue}>{labelValue}</label>
       <input
+        className="input__container-input"
         required={required}
         type={type}
         value={value}
@@ -25,7 +26,7 @@ function Input({
         placeholder={placeholder}
         onChange={(event) => handleChange(nameValue, event.target.value)}
       />
-    </>
+    </div>
   );
 }
 

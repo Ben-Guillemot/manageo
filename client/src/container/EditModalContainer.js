@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { actionUpdateUser, actionSetUserInformations } from '../actions';
+import {
+  actionUpdateUser, actionSetUserInformations, actionToggleModal, actionResetUserInformations,
+} from '../actions';
 import EditModal from '../component/EditModal/EditModal';
 
 function EditModalContainer() {
@@ -9,13 +11,26 @@ function EditModalContainer() {
     firstname, lastname, email,
   } = useSelector((state) => state.user);
 
-  const handleSubmit = () => {
-    dispatch(actionUpdateUser());
-  };
+  const { editModal } = useSelector((state) => state.modal);
 
   const changeField = (key, value) => {
     dispatch(actionSetUserInformations(key, value));
   };
+
+  const closeModal = (modal, bool) => {
+    dispatch(actionToggleModal(modal, bool));
+    dispatch(actionResetUserInformations());
+  };
+
+  const handleSubmit = () => {
+    dispatch(actionUpdateUser());
+    dispatch(actionResetUserInformations());
+  };
+
+  if (!editModal) {
+    return null;
+  }
+
   return (
     <EditModal
       firstname={firstname}
@@ -23,6 +38,7 @@ function EditModalContainer() {
       email={email}
       handleSubmit={handleSubmit}
       changeField={changeField}
+      closeModal={closeModal}
     />
   );
 }
