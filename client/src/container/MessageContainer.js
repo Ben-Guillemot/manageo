@@ -1,17 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  actionCreateUser, actionSetUserInformations, actionToggleModal, actionResetUserInformations,
+  actionToggleMessage,
 } from '../actions';
-import CreateModal from '../component/CreateModal/CreateModal';
+import EditModal from '../component/EditModal/EditModal';
 
-function CreateModalContainer() {
+function EditModalContainer() {
   const dispatch = useDispatch();
   const {
     firstname, lastname, email,
   } = useSelector((state) => state.user);
 
-  const { createModal } = useSelector((state) => state.modal);
+  const { editModal } = useSelector((state) => state.modal);
 
   const changeField = (key, value) => {
     dispatch(actionSetUserInformations(key, value));
@@ -23,16 +23,16 @@ function CreateModalContainer() {
   };
 
   const handleSubmit = () => {
-    dispatch(actionCreateUser());
+    dispatch(actionUpdateUser());
     dispatch(actionResetUserInformations());
   };
 
-  if (!createModal) {
+  if (!editModal) {
     return null;
   }
 
   return (
-    <CreateModal
+    <EditModal
       firstname={firstname}
       lastname={lastname}
       email={email}
@@ -43,6 +43,6 @@ function CreateModalContainer() {
   );
 }
 
-CreateModalContainer.propTypes = {};
-CreateModalContainer.defaultProps = {};
-export default React.memo(CreateModalContainer);
+EditModalContainer.propTypes = {};
+EditModalContainer.defaultProps = {};
+export default React.memo(EditModalContainer);

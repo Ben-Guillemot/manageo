@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import UsersListContainer from '../../container/UsersListContainer';
-import EditModalContainer from '../../container/EditModalContainer';
-import DeleteModalContainer from '../../container/DeleteModalContainer';
-import CreateModalContainer from '../../container/CreateModalContainer';
+import ModalContainer from '../../container/ModalContainer';
 import './App.scss';
 
 function App({
@@ -25,9 +23,7 @@ function App({
             key={user.id}
           />
         ))}
-        <EditModalContainer />
-        <DeleteModalContainer />
-        <CreateModalContainer />
+        <ModalContainer />
         <button type="button" className="App__main-button" onClick={handleCreateButtonClick}>Ajouter un membre</button>
       </main>
     </div>
