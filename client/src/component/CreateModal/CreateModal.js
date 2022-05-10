@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input/Input';
 import './createModal.scss';
@@ -11,11 +11,22 @@ function CreateModal({
   changeField,
   closeModal,
 }) {
+  const [showButton, setShowButton] = useState(false);
   const submitForm = (e) => {
     e.preventdefault();
     handleSubmit();
     closeModal('createModal', false);
   };
+
+  useEffect(() => {
+    if (firstname.trim() === '' || lastname.trim() === '' || email.trim() === '') {
+      if (showButton === false) {
+        setShowButton(true);
+      }
+    } else if (showButton === true) {
+      setShowButton(false);
+    }
+  }, [firstname, lastname, email]);
 
   return (
     <div className="modal__overlay">
@@ -48,7 +59,7 @@ function CreateModal({
         />
         <div className="modal__form-button-container">
           <button type="button" className="modal__form-button cancel" aria-label="Annuler la création" onClick={() => { closeModal('createModal', false); }}>Annuler</button>
-          <button type="submit" className="modal__form-button validate" aria-label="Valider la création" onClick={() => { submitForm(); }}>Valider</button>
+          <button disabled={showButton} type="submit" className="modal__form-button validate" aria-label="Valider la création" onClick={() => { submitForm(); }}>Valider</button>
         </div>
       </form>
     </div>
