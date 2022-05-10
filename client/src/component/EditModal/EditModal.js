@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input/Input';
 import './editmodal.scss';
@@ -11,6 +11,18 @@ function EditModal({
   changeField,
   closeModal,
 }) {
+  const [isButtonDisable, setIsButtonDisable] = useState(true);
+
+  useEffect(() => {
+    if (firstname.trim() === '' || lastname.trim() === '' || email.trim() === '') {
+      if (isButtonDisable === false) {
+        setIsButtonDisable(true);
+      }
+    } else {
+      setIsButtonDisable(false);
+    }
+  }, [firstname, lastname, email]);
+
   return (
     <div className="modal__overlay">
       <form onSubmit={handleSubmit} className="modal__form">
@@ -41,8 +53,8 @@ function EditModal({
           idValue="email_input"
         />
         <div className="modal__form-button-container">
-          <button type="button" className="modal__form-button cancel" aria-label="Annuler la modification" onClick={() => { closeModal(); }}>Annuler</button>
-          <input type="submit" className="modal__form-button validate" aria-label="Valider la modification" value="Valider" />
+          <button type="button" className="modal__form-button cancel" aria-label="Annuler la modification" onClick={closeModal}>Annuler</button>
+          <input disabled={isButtonDisable} type="submit" className="modal__form-button validate" aria-label="Valider la modification" value="Valider" />
         </div>
       </form>
     </div>

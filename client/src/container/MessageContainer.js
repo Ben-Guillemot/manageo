@@ -1,48 +1,63 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  actionToggleMessage,
-} from '../actions';
-import EditModal from '../component/EditModal/EditModal';
+import { actionToggleMessage } from '../actions';
+import Message from '../component/Message/Message';
 
-function EditModalContainer() {
+function MessageContainer() {
   const dispatch = useDispatch();
+
+  const stopShowMessage = (message) => {
+    setTimeout(() => dispatch(actionToggleMessage(message, false)), 3000);
+  };
   const {
-    firstname, lastname, email,
-  } = useSelector((state) => state.user);
+    createSuccess,
+    updateSuccess,
+    deleteSuccess,
+    errorMessage,
+  } = useSelector((state) => state.message);
 
-  const { editModal } = useSelector((state) => state.modal);
-
-  const changeField = (key, value) => {
-    dispatch(actionSetUserInformations(key, value));
-  };
-
-  const closeModal = (modal, bool) => {
-    dispatch(actionToggleModal(modal, bool));
-    dispatch(actionResetUserInformations());
-  };
-
-  const handleSubmit = () => {
-    dispatch(actionUpdateUser());
-    dispatch(actionResetUserInformations());
-  };
-
-  if (!editModal) {
-    return null;
+  if (createSuccess) {
+    return (
+      <Message
+        classname="success"
+        content="Membre créé avec succès !"
+        stopShowMessage={stopShowMessage}
+        message="createSuccess"
+      />
+    );
   }
-
-  return (
-    <EditModal
-      firstname={firstname}
-      lastname={lastname}
-      email={email}
-      handleSubmit={handleSubmit}
-      changeField={changeField}
-      closeModal={closeModal}
-    />
-  );
+  if (updateSuccess) {
+    return (
+      <Message
+        classname="success"
+        message="updateSuccess"
+        stopShowMessage={stopShowMessage}
+        content="Membre modifié avec succès !"
+      />
+    );
+  }
+  if (deleteSuccess) {
+    return (
+      <Message
+        classname="success"
+        message="deleteSuccess"
+        stopShowMessage={stopShowMessage}
+        content="Membre supprimé avec succès !"
+      />
+    );
+  }
+  if (errorMessage) {
+    return (
+      <Message
+        classname="error"
+        content="Désolé une erreur s'est produite ..."
+        stopShowMessage={stopShowMessage}
+        message="errorMessage"
+      />
+    );
+  }
 }
 
-EditModalContainer.propTypes = {};
-EditModalContainer.defaultProps = {};
-export default React.memo(EditModalContainer);
+MessageContainer.propTypes = {};
+MessageContainer.defaultProps = {};
+export default React.memo(MessageContainer);

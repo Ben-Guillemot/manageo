@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UsersListContainer from '../../container/UsersListContainer';
 import ModalContainer from '../../container/ModalContainer';
+import MessageContainer from '../../container/MessageContainer';
 import './App.scss';
 
 function App({
@@ -14,10 +15,11 @@ function App({
         <h1>Liste des membres</h1>
       </header>
       <main className="App__main">
+        <MessageContainer />
         {usersList.map((user) => (
           <UsersListContainer
             firstname={user.firstname}
-            lastname={user.lastname}
+            lastname={user.lastname.toUpperCase()}
             email={user.email}
             id={user.id}
             key={user.id}

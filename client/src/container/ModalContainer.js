@@ -33,7 +33,6 @@ function EditModalContainer() {
     if (deleteModal) {
       dispatch(actionToggleModal('deleteModal', false));
     }
-
     dispatch(actionResetUserInformations());
   };
 

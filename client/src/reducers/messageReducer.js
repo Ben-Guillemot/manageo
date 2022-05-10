@@ -2,16 +2,18 @@
 import * as actions from '../actions';
 
 const initialState = {
-  succesMessage: false,
+  createSuccess: false,
+  updateSuccess: false,
+  deleteSuccess: false,
   errorMessage: false,
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case actions.TOGGLE_MODAL:
+    case actions.TOGGLE_MESSAGE:
       return {
         ...state,
-        [action.payload.modal]: action.payload.bool,
+        [action.payload.message]: action.payload.bool,
       };
 
     default:

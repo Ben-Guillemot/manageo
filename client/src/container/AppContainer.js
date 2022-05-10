@@ -13,8 +13,8 @@ function AppContainer() {
   };
 
   const sortArray = (x, y) => {
-    if (x.lastname < y.lastname) { return -1; }
-    if (x.lastname > y.lastname) { return 1; }
+    if (x.lastname.toLowerCase() < y.lastname.toLowerCase()) { return -1; }
+    if (x.lastname.toLowerCase() > y.lastname.toLowerCase()) { return 1; }
     return 0;
   };
 

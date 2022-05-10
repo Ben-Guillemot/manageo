@@ -10,7 +10,7 @@ const userMiddleware = (store) => (next) => async (action) => {
       if (response.status === 200) {
         store.dispatch(actions.actionGetAllUsers(response.data));
       } else {
-        alert(`Error: ${response.status}`);
+        store.dispatch(actions.actionToggleMessage('errorMessage', true));
         return;
       }
       return;
@@ -24,8 +24,9 @@ const userMiddleware = (store) => (next) => async (action) => {
       if (response.status === 201) {
         store.dispatch(actions.actionResetUserInformations());
         store.dispatch(actions.actionRequestAllUsers());
+        store.dispatch(actions.actionToggleMessage('createSuccess', true));
       } else {
-        alert(`Error: ${response.status}`);
+        store.dispatch(actions.actionToggleMessage('errorMessage', true));
         return;
       }
       return;
@@ -39,8 +40,9 @@ const userMiddleware = (store) => (next) => async (action) => {
       if (response.status === 200) {
         store.dispatch(actions.actionResetUserInformations());
         store.dispatch(actions.actionRequestAllUsers());
+        store.dispatch(actions.actionToggleMessage('updateSuccess', true));
       } else {
-        alert(`Error: ${response.status}`);
+        store.dispatch(actions.actionToggleMessage('errorMessage', true));
         return;
       }
       return;
@@ -52,8 +54,9 @@ const userMiddleware = (store) => (next) => async (action) => {
       if (response.status === 200) {
         store.dispatch(actions.actionResetUserInformations());
         store.dispatch(actions.actionRequestAllUsers());
+        store.dispatch(actions.actionToggleMessage('deleteSuccess', true));
       } else {
-        alert(`Error: ${response.status}`);
+        store.dispatch(actions.actionToggleMessage('errorMessage', true));
         return;
       }
       return;
