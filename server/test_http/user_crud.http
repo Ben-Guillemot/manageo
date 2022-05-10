@@ -1,0 +1,36 @@
+################################################################################
+# Test file for HTTP routes
+# REST Client for VSCode needed
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+################################################################################
+
+@endpoint = http://localhost:3004/users
+
+### Get all users
+GET {{ endpoint }}
+
+### Get one user
+GET {{ endpoint }}/2
+
+### Create an user 
+POST {{ endpoint }}
+content-type: application/json
+
+{
+  "firstname": "string",
+  "lastname": "string",
+  "email": "string@test.net"
+}
+
+### Patch an user 
+PATCH {{ endpoint }}/3
+content-type: application/json
+
+{
+  "firstname": "string",
+  "lastname": "string",
+  "email": "strinsssg@test.net"
+}
+
+### Delete an user
+DELETE {{ endpoint }}/5

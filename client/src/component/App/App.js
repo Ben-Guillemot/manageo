@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UsersList from '../UsersList/UsersList';
-import { requestAllUsers } from '../../requests/usersRequests';
+import { getAllUsers } from '../../requests/usersRequests';
 import './App.scss';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     const request = async () => {
-      const response = await requestAllUsers();
+      const response = await getAllUsers();
       if (response.status === 200) {
         setUsersList(response.data);
       } else {
