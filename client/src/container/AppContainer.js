@@ -9,7 +9,7 @@ function AppContainer() {
   const { usersList } = useSelector((state) => state.user);
 
   const handleCreateButtonClick = () => {
-    dispatch(actionToggleModal('editModal', true));
+    dispatch(actionToggleModal('createModal', true));
   };
 
   const sortArray = (x, y) => {

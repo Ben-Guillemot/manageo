@@ -24,25 +24,36 @@ function EditModalContainer() {
   };
 
   const closeModal = () => {
-    if (editModal || createModal) {
+    if (editModal) {
       dispatch(actionToggleModal('editModal', false));
-    } else {
+    }
+    if (createModal) {
+      dispatch(actionToggleModal('createModal', false));
+    }
+    if (deleteModal) {
       dispatch(actionToggleModal('deleteModal', false));
     }
+
     dispatch(actionResetUserInformations());
   };
 
-  const handleEditSubmit = () => {
+  const handleEditSubmit = (event) => {
+    event.preventDefault();
     dispatch(actionUpdateUser());
+    closeModal();
     dispatch(actionResetUserInformations());
   };
 
-  const handleDeleteSubmit = () => {
+  const handleDeleteSubmit = (event) => {
+    event.preventDefault();
     dispatch(actionDeleteUser());
+    closeModal();
   };
 
-  const handleCreateSubmit = () => {
+  const handleCreateSubmit = (event) => {
+    event.preventDefault();
     dispatch(actionCreateUser());
+    closeModal();
     dispatch(actionResetUserInformations());
   };
 

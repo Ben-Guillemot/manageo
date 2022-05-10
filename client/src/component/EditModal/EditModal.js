@@ -11,15 +11,9 @@ function EditModal({
   changeField,
   closeModal,
 }) {
-  const submitForm = (e) => {
-    e.preventdefault();
-    handleSubmit();
-    closeModal('editModal', false);
-  };
-
   return (
     <div className="modal__overlay">
-      <form action="post" onSubmit={handleSubmit} className="modal__form">
+      <form onSubmit={handleSubmit} className="modal__form">
         <Input
           type="text"
           labelValue="Prénom"
@@ -48,7 +42,7 @@ function EditModal({
         />
         <div className="modal__form-button-container">
           <button type="button" className="modal__form-button cancel" aria-label="Annuler la modification" onClick={() => { closeModal(); }}>Annuler</button>
-          <button type="submit" className="modal__form-button validate" aria-label="Valider la modification" onClick={() => { submitForm(); }}>Valider</button>
+          <input type="submit" className="modal__form-button validate" aria-label="Valider la modification" value="Valider" />
         </div>
       </form>
     </div>

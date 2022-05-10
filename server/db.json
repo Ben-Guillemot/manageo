@@ -3,42 +3,12 @@
     {
       "id": "1",
       "firstname": "Jean",
-      "lastname": "Dupont",
+      "lastname": "Dupond",
       "email": "jean@mail.com"
     },
     {
-      "id": "2",
-      "firstname": "Michel",
-      "lastname": "Meunier",
-      "email": "michel@mail.com"
-    },
-    {
-      "id": "6",
-      "firstname": "Marie",
-      "lastname": "Chamois",
-      "email": "marie@mail.com"
-    },
-    {
-      "id": "7",
-      "firstname": "Céline",
-      "lastname": "Morpion",
-      "email": "celine@mail.com"
-    },
-    {
-      "firstname": "Bob",
-      "lastname": "Marley",
-      "email": "bob@mail.com",
-      "id": "VmjpcRZ"
-    },
-    {
-      "firstname": "Didier",
-      "lastname": "Moraux",
-      "email": "didier@gmail.com",
-      "id": "sifRm4L"
-    },
-    {
       "firstname": "Pierre",
-      "lastname": "Feuilles",
+      "lastname": "Feuille",
       "email": "pierre@mail.com",
       "id": "8mJHBWk"
     }
