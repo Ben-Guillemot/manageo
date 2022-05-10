@@ -1,4 +1,4 @@
-# manageo
+# UserList application
 
 ## Technologies
 
