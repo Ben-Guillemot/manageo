@@ -1,0 +1,50 @@
+.userslist__container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  width: 40%;
+  margin: 1rem auto;
+  border-bottom: 1px solid #000;
+
+  &-info-container {
+    display: flex;
+    align-items: center;
+    &-content{
+      margin: 0 2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      
+      & p{
+        margin-bottom: 0.5rem;
+      }
+    }
+    &-button {
+      position: absolute;
+      top: 32px;
+      left: 0px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+
+  &-buttons-container {
+    &-button {
+      margin: 1rem;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    &-img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+}
+
+.email {
+  font-size: 1rem;
+}

@@ -47,8 +47,8 @@ function EditModal({
           idValue="email_input"
         />
         <div className="modal__form-button-container">
-          <button type="button" className="modal__form-button cancel" onClick={() => { closeModal('editModal', false); }}>Annuler</button>
-          <button type="submit" className="modal__form-button validate" onClick={() => { submitForm(); }}>Valider</button>
+          <button type="button" className="modal__form-button cancel" aria-label="Annuler la modification" onClick={() => { closeModal('editModal', false); }}>Annuler</button>
+          <button type="submit" className="modal__form-button validate" aria-label="Valider la modification" onClick={() => { submitForm(); }}>Valider</button>
         </div>
       </form>
     </div>
