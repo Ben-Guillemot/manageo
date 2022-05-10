@@ -2,7 +2,7 @@
 
 ## Technologies
 
-Built with **React**, **Redux**. Runs on **json-server**.
+Built with **React**, **Redux** and **json-server**.
 
 <!-- Construit avec **React**, **Redux**. Tourne sur **json-server**. -->
 
