@@ -23,8 +23,12 @@ function EditModalContainer() {
     dispatch(actionSetUserInformations(key, value));
   };
 
-  const closeModal = (modal, bool) => {
-    dispatch(actionToggleModal(modal, bool));
+  const closeModal = () => {
+    if (editModal || createModal) {
+      dispatch(actionToggleModal('editModal', false));
+    } else {
+      dispatch(actionToggleModal('deleteModal', false));
+    }
     dispatch(actionResetUserInformations());
   };
 
