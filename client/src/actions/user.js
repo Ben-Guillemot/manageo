@@ -58,7 +58,7 @@ export function actionGetUserInformations({
   };
 }
 
-export function actionSetUserInformations({ key, value }) {
+export function actionSetUserInformations(key, value) {
   return {
     type: SET_USER_INFORMATIONS,
     payload: { key, value },

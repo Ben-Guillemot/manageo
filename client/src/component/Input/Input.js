@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './input.scss';
@@ -20,9 +21,8 @@ function Input({
         type={type}
         value={value}
         id={idValue}
-        nameValue={nameValue}
+        name={nameValue}
         placeholder={placeholder}
-        variant="outlined"
         onChange={(event) => handleChange(nameValue, event.target.value)}
       />
     </>

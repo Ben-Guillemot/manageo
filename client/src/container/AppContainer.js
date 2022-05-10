@@ -6,7 +6,7 @@ import App from '../component/App/App';
 function AppContainer() {
   const dispatch = useDispatch();
 
-  const usersList = useSelector((state) => state.user.usersList);
+  const { usersList } = useSelector((state) => state.user);
 
   const sortArray = (x, y) => {
     if (x.lastname < y.lastname) { return -1; }

@@ -18,19 +18,21 @@ function UsersList({
   };
 
   return (
-    <div>
-      <p>
-        {lastname}
-        {' '}
-        {firstname}
-      </p>
-      <button type="button" onClick={takeInfosOnClick}>
-        <img src={editIcon} alt="bouton édition" />
-      </button>
-      <button type="button">
-        <img src={deleteIcon} alt="bouton supprimer" />
-      </button>
-    </div>
+    <section>
+      <div>
+        <p>
+          {lastname}
+          {' '}
+          {firstname}
+        </p>
+        <button type="button" onClick={takeInfosOnClick}>
+          <img src={editIcon} alt="bouton édition" />
+        </button>
+        <button type="button">
+          <img src={deleteIcon} alt="bouton supprimer" />
+        </button>
+      </div>
+    </section>
   );
 }
 

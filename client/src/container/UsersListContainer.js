@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import UsersList from '../component/UsersList/UsersList';
-import { actionGetUserInformations } from '../actions';
+import { actionGetUserInformations, actionToggleModal } from '../actions';
 
 function UsersListContainer({
   firstname,
@@ -14,6 +14,7 @@ function UsersListContainer({
 
   const handleEditButtonClick = (datas) => {
     dispatch(actionGetUserInformations(datas));
+    dispatch(actionToggleModal('editModal', true));
   };
   return (
     <UsersList
