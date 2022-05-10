@@ -10,7 +10,6 @@ import {
 } from '../actions';
 import EditModal from '../component/EditModal/EditModal';
 import DeleteModal from '../component/DeleteModal/DeleteModal';
-import CreateModal from '../component/CreateModal/CreateModal';
 
 function EditModalContainer() {
   const dispatch = useDispatch();
@@ -67,7 +66,7 @@ function EditModalContainer() {
 
   if (createModal) {
     return (
-      <CreateModal
+      <EditModal
         firstname={firstname}
         lastname={lastname}
         email={email}

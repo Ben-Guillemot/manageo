@@ -29,6 +29,18 @@
       "lastname": "Marley",
       "email": "bob@mail.com",
       "id": "VmjpcRZ"
+    },
+    {
+      "firstname": "Didier",
+      "lastname": "Moraux",
+      "email": "didier@gmail.com",
+      "id": "sifRm4L"
+    },
+    {
+      "firstname": "Pierre",
+      "lastname": "Feuilles",
+      "email": "pierre@mail.com",
+      "id": "8mJHBWk"
     }
   ]
 }
